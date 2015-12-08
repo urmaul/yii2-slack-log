@@ -1,0 +1,6 @@
+{
+    "require": {
+        "yiisoft/yii2": "*",
+        "urmaul/httpclient": "~1.1"
+    }
+}
