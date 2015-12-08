@@ -1,6 +1,24 @@
 {
+    "name": "urmaul/yii2-slack-log",
+    "type": "library",
+    "description": "Yii2 log route that pushes logs to Slack channel.",
+    "keywords": ["yii2", "slack", "log", "route", "target"],
+    "homepage": "https://github.com/urmaul/yii2-slack-log",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bogdan Kolbik",
+            "email": "me@urmaul.com",
+            "homepage": "http://urmaul.com/"
+        }
+    ],
     "require": {
         "yiisoft/yii2": "*",
         "urmaul/httpclient": "~1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "urmaul\\yii2\\log\\slack\\": "src/"
+        }
     }
 }
