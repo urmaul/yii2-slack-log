@@ -20,6 +20,7 @@ Yii2 log route that pushes logs to Slack channel.
                 'class' => 'urmaul\yii2\log\slack\Target',
                 'levels' => ['error'], // Send message on errors
                 'except' => ['yii\web\HttpException:404'], // ...except 404
+                'enabled' => !YII_DEBUG, // No not send in debug mode
                 'webhookUrl' => 'YOUR_WEBHOOK_URL_FROM_SLACK',
                 //'username' => 'MYBOT', // Bot username. Defaults to app name
                 //'icon_url' => null, // Bot icon URL
