@@ -56,7 +56,7 @@ class Target extends \yii\log\Target
         parent::init();
         
         if (!$this->webhookUrl)
-            throw new InvalidConfigException("Unable to append to log file: {$this->logFile}");
+            $this->enabled = false;
         
         if (!$this->username)
             $this->username = Yii::$app->name;
@@ -67,6 +67,9 @@ class Target extends \yii\log\Target
      */
     public function export()
     {
+        if (!$this->messages || !$this->webhookUrl)
+            return;
+        
         list($text, $attachments) = $this->formatMessages();
         
         $body = json_encode([
@@ -87,9 +90,6 @@ class Target extends \yii\log\Target
      */
     protected function formatMessages()
     {
-        if (!$this->messages)
-            return;
-        
         $text = ($this->prefix ? $this->prefix . "\n" : '');
         $attachments = [];
         
