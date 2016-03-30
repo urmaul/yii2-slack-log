@@ -62,7 +62,7 @@ class Target extends \yii\log\Target
             $this->username = Yii::$app->name;
         
         // Not pushing Slackbot request errors to slack.
-        if (Yii::$app->request && preg_match('/^Slackbot-/', Yii::$app->request->userAgent))
+        if (isset(Yii::$app->request->userAgent) && preg_match('/^Slackbot-/', Yii::$app->request->userAgent))
             $this->enabled = false;
     }
     
