@@ -8,7 +8,7 @@ Yii2 log route that pushes logs to Slack channel.
 2. Attach log route.
     
     ```
-    composer require urmaul/yii2-slack-log '~1.0'
+    composer require urmaul/yii2-slack-log '~2.0'
     ```
     
 3. Add this route to log targets.
