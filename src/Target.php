@@ -36,10 +36,10 @@ class Target extends \yii\log\Target
     public $icon_emoji = ':beetle:';
     
     /**
-     * Message prefix
+     * Message prefix text
      * @var string 
      */
-    public $prefix;
+    public $prefixText;
     
     public $colors = [
         Logger::LEVEL_ERROR => 'danger',
@@ -61,7 +61,7 @@ class Target extends \yii\log\Target
         if (!$this->username)
             $this->username = Yii::$app->name;
         
-        // Not pushing Slackbot request errors to slack.
+        // Not pushing Slackbot requests to slack.
         if (isset(Yii::$app->request->userAgent) && preg_match('/^Slackbot-/', Yii::$app->request->userAgent))
             $this->enabled = false;
     }
@@ -94,7 +94,7 @@ class Target extends \yii\log\Target
      */
     protected function formatMessages()
     {
-        $text = ($this->prefix ? $this->prefix . "\n" : '');
+        $text = ($this->prefixText ? $this->prefixText . "\n" : '');
         $attachments = [];
         
         $currentUrl = null;
