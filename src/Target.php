@@ -97,6 +97,7 @@ class Target extends \yii\log\Target
         $text = ($this->prefix ? $this->prefix . "\n" : '');
         $attachments = [];
         
+        $currentUrl = null;
         try {
             $currentUrl = Url::to('', true);
             $text .= 'Current URL: <' . $currentUrl . '>' . "\n";
